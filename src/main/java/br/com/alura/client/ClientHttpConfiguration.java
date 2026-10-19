@@ -21,7 +21,7 @@ public class ClientHttpConfiguration {
         return client.send(request, HttpResponse.BodyHandlers.ofString());
     }
 
-    public HttpResponse<String> disparaRequisicaoPost(Object object, String uri) throws IOException, InterruptedException {
+    public HttpResponse<String> dispararRequisicaoPost(Object object, String uri) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
 
         HttpRequest request = HttpRequest.newBuilder()
@@ -29,6 +29,7 @@ public class ClientHttpConfiguration {
                 .header("Content-Type", "application/json")
                 .method("POST", HttpRequest.BodyPublishers.ofString(new Gson().toJson(object)))
                 .build();
+
         return client.send(request, HttpResponse.BodyHandlers.ofString());
     }
 }
